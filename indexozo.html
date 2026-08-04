@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame It Naija | Premium Custom Framing & Wall Art</title>
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="spinner"></div>
+    <p>Loading Luxury Experience...</p>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <p>🎨 Nationwide Express Delivery Across Nigeria | Get 10% Off Your First Frame — Code: <strong>NAIJA10</strong></p>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="main-header" id="header">
+    <nav class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-accent">Frame It</span> Naija
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#shop" class="nav-link">Shop Collection</a></li>
+        <li><a href="#estimator" class="nav-link">Instant Quote</a></li>
+        <li><a href="#upload" class="nav-link">Custom Framing</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Wishlist Icon -->
+        <button id="wishlist-btn" class="icon-btn" aria-label="View Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="badge" id="wishlist-count">0</span>
+        </button>
+
+        <!-- Shopping Cart Icon -->
+        <button id="cart-drawer-toggle" class="icon-btn" aria-label="View Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge" id="cart-count">0</span>
+        </button>
+
+        <!-- Admin Panel Toggle Button -->
+        <button id="admin-modal-toggle" class="btn btn-outline-sm">
+          <i class="fa-solid fa-lock"></i> Admin
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-toggle" class="icon-btn mobile-only" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section 1: Premium Hero Section -->
+    <section id="hero" class="hero-section">
+      <!-- Animated Background Blobs -->
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      
+      <div class="hero-container">
+        <div class="hero-content">
+          <span class="hero-subtitle">Handcrafted Artisanal Framing</span>
+          <h1 class="hero-title">Preserve Your Finest Memories with <span class="highlight">Elegance</span></h1>
+          <p class="hero-description">
+            Nigeria’s premier bespoke framing studio. Transform your digital photos, artwork, and diplomas into gallery-ready masterpieces.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#upload" class="btn btn-primary btn-glow">Upload & Frame Now <i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+            <a href="#shop" class="btn btn-secondary">Explore Shop <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Hero Brand Stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3 class="stat-number" data-target="15000">15,000+</h3>
+              <p class="stat-label">Frames Delivered</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-number" data-target="99">99.4%</h3>
+              <p class="stat-label">Five-Star Reviews</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-number" data-target="100">100%</h3>
+              <p class="stat-label">Italian Wood Quality</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parallax Floating Artwork Display -->
+        <div class="hero-visual">
+          <div class="floating-frame frame-1" data-speed="2">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Bespoke Frame Sample 1" loading="lazy" />
+          </div>
+          <div class="floating-frame frame-2" data-speed="-2">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" alt="Bespoke Frame Sample 2" loading="lazy" />
+          </div>
+          <div class="floating-frame frame-3" data-speed="1">
+            <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=600&q=80" alt="Bespoke Frame Sample 3" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling Brand Logos -->
+      <div class="brand-ticker">
+        <p class="ticker-title">TRUSTED BY TOP ARCHITECTS & INTERIOR DESIGNERS IN NIGERIA</p>
+        <div class="ticker-track">
+          <span><i class="fa-solid fa-building"></i> Eko Atlantic Living</span>
+          <span><i class="fa-solid fa-gem"></i> Luxury Decor NG</span>
+          <span><i class="fa-solid fa-landmark"></i> National Gallery of Art</span>
+          <span><i class="fa-solid fa-hotel"></i> Transcorp Hilton</span>
+          <span><i class="fa-solid fa-crown"></i> Crown Estate Decor</span>
+          <span><i class="fa-solid fa-building"></i> Eko Atlantic Living</span>
+          <span><i class="fa-solid fa-gem"></i> Luxury Decor NG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Shop & Product Showcase -->
+    <section id="shop" class="shop-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Our Collection</span>
+          <h2>Explore Artisan Frames & Canvas</h2>
+          <p>Hand-built with premium timber, archival acrylic, and acid-free matboards.</p>
+        </div>
+
+        <!-- Search, Filter & Sorting Bar -->
+        <div class="shop-controls">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="product-search" placeholder="Search frames, canvas, materials..." />
+          </div>
+
+          <div class="filter-categories" id="category-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="classic">Classic Wood</button>
+            <button class="filter-btn" data-category="modern">Modern Minimalist</button>
+            <button class="filter-btn" data-category="lux-gold">Ornate Gold</button>
+            <button class="filter-btn" data-category="canvas">Floating Canvas</button>
+          </div>
+
+          <div class="sort-box">
+            <select id="product-sort">
+              <option value="featured">Sort by: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="product-grid" id="product-grid">
+          <!-- Skeleton Loader (Fallback before Dynamic JS load) -->
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Instant Quote Estimator -->
+    <section id="estimator" class="estimator-section section-padding bg-alt">
+      <div class="container">
+        <div class="estimator-grid">
+          <div class="estimator-info">
+            <span class="section-badge">Transparent Pricing</span>
+            <h2>Instant Framing Price Estimator</h2>
+            <p>Calculate custom frame costs instantly based on your exact specifications. No hidden charges.</p>
+            <ul class="feature-checklist">
+              <li><i class="fa-solid fa-circle-check"></i> Real-time cost updates</li>
+              <li><i class="fa-solid fa-circle-check"></i> Anti-reflective museum glass option</li>
+              <li><i class="fa-solid fa-circle-check"></i> Free hanging hardware kit included</li>
+            </ul>
+          </div>
+
+          <div class="estimator-card">
+            <form id="quote-calculator-form">
+              <div class="form-group">
+                <label for="calc-width">Width (Inches):</label>
+                <input type="number" id="calc-width" min="4" max="100" value="16" required />
+              </div>
+
+              <div class="form-group">
+                <label for="calc-height">Height (Inches):</label>
+                <input type="number" id="calc-height" min="4" max="100" value="20" required />
+              </div>
+
+              <div class="form-group">
+                <label for="calc-material">Frame Material & Finish:</label>
+                <select id="calc-material">
+                  <option value="15">Natural Oak Wood (₦15,000 base rate)</option>
+                  <option value="18">Matte Black Aluminium (₦18,000 base rate)</option>
+                  <option value="25">Vintage Gold Leaf (₦25,000 base rate)</option>
+                  <option value="20">Mahogany Timber (₦20,000 base rate)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calc-glass">Glass Type:</label>
+                <select id="calc-glass">
+                  <option value="1.0">Standard Clear Acrylic</option>
+                  <option value="1.3">Non-Glare UV Protective Acrylic (+30%)</option>
+                  <option value="1.6">Museum Grade Archival Glass (+60%)</option>
+                </select>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="calc-matboard" checked />
+                <label for="calc-matboard">Add Acid-Free Matboard (+ ₦4,500)</label>
+              </div>
+
+              <div class="estimator-result">
+                <span>Estimated Cost:</span>
+                <h3 id="calc-total-price">₦ 0.00</h3>
+              </div>
+
+              <button type="button" id="add-custom-quote-to-cart" class="btn btn-primary btn-block">
+                Add Custom Frame To Cart
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Drag & Drop Custom Image Upload -->
+    <section id="upload" class="upload-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Bespoke Customizer</span>
+          <h2>Upload Your Image & Preview</h2>
+          <p>Drag and drop your photo to visualize how it looks inside your chosen frame style.</p>
+        </div>
+
+        <div class="upload-wrapper">
+          <div class="drop-zone" id="drop-zone">
+            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+            <h3>Drag & Drop your high-res photo here</h3>
+            <p>Or click to browse from your computer or phone (JPG, PNG, WEBP)</p>
+            <input type="file" id="file-input" accept="image/*" hidden />
+            <button type="button" class="btn btn-outline" onclick="document.getElementById('file-input').click()">Browse Files</button>
+          </div>
+
+          <div class="upload-preview-area hidden" id="upload-preview-area">
+            <div class="preview-frame-container" id="preview-frame-box">
+              <img id="uploaded-image-preview" src="" alt="Custom Upload Preview" />
+            </div>
+            <div class="preview-controls">
+              <h4>Frame Preview Styling</h4>
+              <div class="style-selector">
+                <button class="style-btn active" data-style="frame-style-wood">Oak</button>
+                <button class="style-btn" data-style="frame-style-black">Black</button>
+                <button class="style-btn" data-style="frame-style-gold">Gold</button>
+              </div>
+              <button id="order-custom-upload" class="btn btn-primary">Proceed with Uploaded Art</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Gallery (Pinterest Style Masonry + Lightbox) -->
+    <section id="gallery" class="gallery-section section-padding bg-alt">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Inspiration Gallery</span>
+          <h2>Customer Inspiration & Real Projects</h2>
+          <p>Explore real installations framed by Frame It Naija in homes, galleries, and corporate offices.</p>
+        </div>
+
+        <div class="masonry-gallery" id="masonry-gallery">
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Gallery Frame 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-expand"></i>
+              <span>Modern Living Room Set</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Gallery Frame 2" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-expand"></i>
+              <span>Classic Oil Painting Frame</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=600&q=80" alt="Gallery Frame 3" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-expand"></i>
+              <span>Minimalist Black Grid Wall</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" alt="Gallery Frame 4" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-expand"></i>
+              <span>Abstract Canvas Floating Frame</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials Slider -->
+    <section class="testimonials-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Client Testimonials</span>
+          <h2>What Collectors & Clients Say</h2>
+        </div>
+
+        <div class="testimonial-slider" id="testimonial-slider">
+          <div class="testimonial-card active">
+            <div class="stars">★★★★★</div>
+            <p>"Frame It Naija transformed our family portrait gallery wall in Victoria Island. The craft and timber quality are standard international levels."</p>
+            <div class="author-info">
+              <h4>Dr. Funke Adebayo</h4>
+              <span>Lagos, Nigeria</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Fast delivery to Abuja and secure bubble-wrapped packaging. The non-glare UV glass was worth every Naira!"</p>
+            <div class="author-info">
+              <h4>Emeka Nwosu</h4>
+              <span>Abuja, FCT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: FAQ Accordion -->
+    <section id="faq" class="faq-section section-padding bg-alt">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Got Questions?</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              How long does standard custom framing take? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Standard orders take 3–5 working days to craft and inspect before shipment across Lagos and nationwide.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you deliver outside Lagos? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We ship securely boxed and crated items to all states in Nigeria, including Abuja, Port Harcourt, and Ibadan.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is the glass safe during shipping? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We utilize shatterproof acrylic glass for all shipped items, offering crystal-clear clarity with zero risk of breaking in transit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Newsletter Subscription -->
+    <section class="newsletter-section section-padding">
+      <div class="container text-center">
+        <h2>Join Our Framing & Art Club</h2>
+        <p>Subscribe for exclusive discounts, wall styling tips, and new frame releases.</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" placeholder="Enter your email address..." required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section 9: Contact Section & Google Maps Embed -->
+    <section id="contact" class="contact-section section-padding bg-alt">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Get In Touch</span>
+          <h2>Visit Our Studio or Send a Message</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <h3>Contact Details</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 14 Admiralty Way, Lekki Phase 1, Lagos, Nigeria</p>
+            <p><i class="fa-solid fa-phone"></i> +234 800 372 6348</p>
+            <p><i class="fa-solid fa-envelope"></i> hello@frameitnaija.com</p>
+            
+            <h4>Business Hours</h4>
+            <p><i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</p>
+            <p><i class="fa-solid fa-clock"></i> Sunday: Closed</p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <!-- Google Maps Embed Placeholder -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7275218768297!2d3.473539!3d6.442438!2m3!1f00!2f00!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf44d8b671a17%3A0x8e83b4b5e2a2fb2a!2sAdmiralty%20Way%2C%20Lekki%20Phase%201%2C%20Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 10: Shopping Cart Drawer Slide-out -->
+  <div id="cart-drawer-overlay" class="drawer-overlay"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="drawer-header">
+      <h3>Your Shopping Cart</h3>
+      <button id="close-cart-drawer" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="drawer-body" id="cart-drawer-items">
+      <!-- Dynamic Cart Items via JS -->
+      <p class="empty-msg">Your shopping cart is empty.</p>
+    </div>
+
+    <div class="drawer-footer">
+      <!-- Coupon Code Section -->
+      <div class="coupon-box">
+        <input type="text" id="coupon-code-input" placeholder="Coupon Code (e.g. NAIJA10)" />
+        <button type="button" id="apply-coupon-btn" class="btn btn-outline-sm">Apply</button>
+      </div>
+
+      <!-- Shipping Estimator -->
+      <div class="shipping-select-box">
+        <label for="shipping-zone"><i class="fa-solid fa-truck-fast"></i> Delivery Zone:</label>
+        <select id="shipping-zone">
+          <option value="2500">Lagos Island / Mainland (₦2,500)</option>
+          <option value="5000">Abuja / Port Harcourt (₦5,000)</option>
+          <option value="7500">Rest of Nigeria (₦7,500)</option>
+        </select>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Subtotal:</span>
+        <strong id="cart-subtotal">₦ 0.00</strong>
+      </div>
+      <div class="cart-summary-line">
+        <span>Discount:</span>
+        <strong id="cart-discount">- ₦ 0.00</strong>
+      </div>
+      <div class="cart-summary-line">
+        <span>Shipping:</span>
+        <strong id="cart-shipping-cost">₦ 2,500.00</strong>
+      </div>
+      <div class="cart-summary-line total-line">
+        <span>Total Estimated:</span>
+        <strong id="cart-grand-total">₦ 0.00</strong>
+      </div>
+
+      <button id="checkout-whatsapp-btn" class="btn btn-whatsapp btn-block">
+        <i class="fa-brands fa-whatsapp"></i> Checkout via WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal" class="modal-overlay hidden">
+    <div class="modal-content quickview-card">
+      <button class="close-modal-btn" id="close-quickview"><i class="fa-solid fa-xmark"></i></button>
+      <div class="quickview-grid">
+        <div class="quickview-img">
+          <img id="qv-image" src="" alt="Product Quick View" />
+        </div>
+        <div class="quickview-details">
+          <span class="product-badge" id="qv-badge">New</span>
+          <h2 id="qv-title">Product Title</h2>
+          <p class="qv-price" id="qv-price">₦ 0.00</p>
+          <p class="qv-desc" id="qv-desc">Product description goes here...</p>
+          <p><strong>Dimensions:</strong> <span id="qv-dimensions">16" x 20"</span></p>
+          <p><strong>Material:</strong> <span id="qv-material">Solid Wood</span></p>
+
+          <div class="qv-actions">
+            <button id="qv-add-to-cart" class="btn btn-primary"><i class="fa-solid fa-bag-shopping"></i> Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Product Management Modal -->
+  <div id="admin-modal" class="modal-overlay hidden">
+    <div class="modal-content admin-card">
+      <button class="close-modal-btn" id="close-admin"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Product Management Admin</h2>
+      <p>Add, edit, or delete items stored in Local Storage.</p>
+
+      <form id="admin-product-form">
+        <input type="hidden" id="admin-product-id" />
+        <div class="form-group">
+          <label for="admin-title">Product Title</label>
+          <input type="text" id="admin-title" required />
+        </div>
+        <div class="form-group">
+          <label for="admin-price">Price (NGN)</label>
+          <input type="number" id="admin-price" required />
+        </div>
+        <div class="form-group">
+          <label for="admin-category">Category</label>
+          <select id="admin-category">
+            <option value="classic">Classic Wood</option>
+            <option value="modern">Modern Minimalist</option>
+            <option value="lux-gold">Ornate Gold</option>
+            <option value="canvas">Floating Canvas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="admin-image">Image URL</label>
+          <input type="url" id="admin-image" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div id="lightbox-modal" class="modal-overlay hidden">
+    <button class="close-modal-btn" id="close-lightbox"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lightbox-img" class="lightbox-content-img" src="" alt="Enlarged view" />
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/2348003726348" class="whatsapp-float-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Back To Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Frame It Naija. Handcrafted with passion in Lagos, Nigeria. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
