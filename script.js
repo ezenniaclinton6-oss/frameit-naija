@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Mahogany Classic Frame',
             category: 'classic',
             price: 25000,
-            image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-01.jpeg',
             description: 'Rich dark mahogany wood with a classic profile. Perfect for diplomas and traditional portraits.',
             badge: 'Best Seller'
         },
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Nordic Light Oak',
             category: 'minimalist',
             price: 22000,
-            image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-02.jpeg',
             description: 'Clean Scandinavian aesthetic crafted from natural light oak. Great for modern minimalist interiors.',
             badge: 'Popular'
         },
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Royal Gold Leaf Float Frame',
             category: 'luxury',
             price: 45000,
-            image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-03.jpeg',
             description: 'Hand-finished gold leaf detail with float effect. Ideal for fine art prints and oil paintings.',
             badge: 'Luxury'
         },
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Matte Black Gallery Box',
             category: 'modern',
             price: 18000,
-            image: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-04.jpeg',
             description: 'Deep box frame with matte black coating. Adds dramatic depth to photography and line art.',
             badge: 'New'
         },
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Ornate Baroque Gold',
             category: 'luxury',
             price: 55000,
-            image: 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-05.jpeg',
             description: 'Intricately carved vintage-style baroque frame in brushed gold tones.',
             badge: 'Exquisite'
         },
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Walnut Shadow Box',
             category: 'classic',
             price: 30000,
-            image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=600&q=80',
+            image: 'images/frame-it-06.jpeg',
             description: 'Deep walnut wood construction designed for 3D objects, jerseys, and cherished memorabilia.',
             badge: 'Custom'
         }
@@ -603,3 +603,1533 @@ document.addEventListener('DOMContentLoaded', () => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 });
+
+/* =====================================================
+CUSTOM FRAME BUILDER ENGINE
+===================================================== */
+
+
+const FrameBuilder = {
+
+
+    basePrice:45000,
+
+
+    settings:{
+
+
+        style:"Classic Wooden",
+
+        material:"Premium Wood",
+
+        glass:"Normal Glass",
+
+        size:1,
+
+        color:"Black"
+
+
+    },
+
+
+
+
+
+    prices:{
+
+
+        styles:{
+
+
+            "Classic Wooden":45000,
+
+            "Modern Black":55000,
+
+            "Luxury Gold":75000,
+
+            "Acrylic Glass":85000
+
+
+        },
+
+
+
+        materials:{
+
+
+            "Premium Wood":0,
+
+            "Metal":15000,
+
+            "Acrylic":25000
+
+
+        },
+
+
+
+        glass:{
+
+
+            "Normal Glass":0,
+
+            "Anti Reflection Glass":10000,
+
+            "Museum Glass":25000
+
+
+        },
+
+
+        sizes:{
+
+
+            1:0,
+
+            1.5:20000,
+
+            2:40000,
+
+            3:80000
+
+
+        }
+
+
+
+    }
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =====================================================
+FRAME BUILDER ELEMENTS
+===================================================== */
+
+
+const imageUpload =
+document.getElementById(
+"imageUpload"
+);
+
+
+
+const previewImage =
+document.getElementById(
+"previewImage"
+);
+
+
+
+
+
+
+
+/* =====================================================
+IMAGE UPLOAD PREVIEW
+===================================================== */
+
+
+if(imageUpload){
+
+
+imageUpload.addEventListener(
+"change",
+function(event){
+
+
+
+const file =
+event.target.files[0];
+
+
+
+if(!file){
+
+return;
+
+}
+
+
+
+
+if(!file.type.startsWith("image")){
+
+
+showMessage(
+"Please upload a valid image file"
+);
+
+
+return;
+
+
+}
+
+
+
+
+const imageURL =
+URL.createObjectURL(file);
+
+
+
+previewImage.src =
+imageURL;
+
+
+
+
+showMessage(
+"Image uploaded successfully"
+);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+FRAME STYLE SELECTION
+===================================================== */
+
+
+const frameStyle =
+document.getElementById(
+"frameStyle"
+);
+
+
+
+if(frameStyle){
+
+
+frameStyle.addEventListener(
+"change",
+function(){
+
+
+
+FrameBuilder.settings.style =
+this.value;
+
+
+
+updateFramePrice();
+
+
+
+applyFrameStyle();
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+FRAME SIZE SELECTION
+===================================================== */
+
+
+const frameSize =
+document.getElementById(
+"frameSize"
+);
+
+
+
+if(frameSize){
+
+
+frameSize.addEventListener(
+"change",
+function(){
+
+
+FrameBuilder.settings.size =
+this.value;
+
+
+
+updateFramePrice();
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+ALL BUILDER SELECT INPUTS
+===================================================== */
+
+
+const builderSelects =
+document.querySelectorAll(
+".builder-options select"
+);
+
+
+
+builderSelects.forEach(
+(select,index)=>{
+
+
+select.addEventListener(
+"change",
+function(){
+
+
+
+if(index===0){
+
+FrameBuilder.settings.style =
+this.value;
+
+}
+
+
+
+if(index===1){
+
+FrameBuilder.settings.color =
+this.value;
+
+}
+
+
+
+if(index===2){
+
+FrameBuilder.settings.material =
+this.value;
+
+}
+
+
+
+if(index===3){
+
+FrameBuilder.settings.glass =
+this.value;
+
+}
+
+
+
+updateFramePrice();
+
+
+applyFrameStyle();
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================================
+PRICE CALCULATION
+===================================================== */
+
+
+function updateFramePrice(){
+
+
+let total =
+
+
+FrameBuilder.prices.styles[
+
+FrameBuilder.settings.style
+
+]
+
+
+
++
+
+FrameBuilder.prices.materials[
+
+FrameBuilder.settings.material
+
+]
+
+
+
++
+
+FrameBuilder.prices.glass[
+
+FrameBuilder.settings.glass
+
+]
+
+
+
++
+
+FrameBuilder.prices.sizes[
+
+FrameBuilder.settings.size
+
+];
+
+
+
+
+
+const priceElement =
+document.getElementById(
+"framePrice"
+);
+
+
+
+if(priceElement){
+
+
+priceElement.innerHTML =
+formatMoney(total);
+
+
+
+}
+
+
+
+
+FrameBuilder.currentPrice =
+total;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+DYNAMIC FRAME APPEARANCE
+===================================================== */
+
+
+function applyFrameStyle(){
+
+
+
+const frame =
+document.querySelector(
+".preview-frame"
+);
+
+
+
+if(!frame){
+
+return;
+
+}
+
+
+
+
+
+switch(
+FrameBuilder.settings.color
+){
+
+
+case "Black":
+
+frame.style.border =
+"20px solid #000";
+
+break;
+
+
+
+case "White":
+
+frame.style.border =
+"20px solid white";
+
+break;
+
+
+
+case "Gold":
+
+frame.style.border =
+"20px solid #c9a227";
+
+break;
+
+
+
+case "Natural Wood":
+
+frame.style.border =
+"20px solid #8b5a2b";
+
+break;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+ADD CUSTOM FRAME TO CART
+===================================================== */
+
+
+const customFrameButton =
+document.querySelector(
+".builder-options .primary-btn"
+);
+
+
+
+if(customFrameButton){
+
+
+customFrameButton.addEventListener(
+"click",
+()=>{
+
+
+const item = {
+
+
+id:
+Date.now(),
+
+
+name:
+"Custom Designed Frame",
+
+
+price:
+FrameBuilder.currentPrice || FrameBuilder.basePrice,
+
+
+options:
+FrameBuilder.settings,
+
+
+image:
+previewImage?.src || ""
+
+
+};
+
+
+
+
+Cart.add(item);
+
+
+
+showMessage(
+"Custom frame added to cart"
+);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+FRAME BUILDER RESET
+===================================================== */
+
+
+function resetFrameBuilder(){
+
+
+FrameBuilder.settings = {
+
+
+style:"Classic Wooden",
+
+material:"Premium Wood",
+
+glass:"Normal Glass",
+
+size:1,
+
+color:"Black"
+
+
+};
+
+
+
+updateFramePrice();
+
+
+}
+
+/* =====================================================
+SHOPPING CART SYSTEM
+===================================================== */
+
+
+const Cart = {
+
+
+
+items:getData(
+FrameItApp.storageKeys.cart
+),
+
+
+
+
+
+
+add(item){
+
+
+
+this.items.push(item);
+
+
+
+this.save();
+
+
+
+updateCartCount();
+
+
+
+},
+
+
+
+
+
+
+
+remove(id){
+
+
+
+this.items =
+
+this.items.filter(
+item=>item.id !== id
+);
+
+
+
+this.save();
+
+
+
+updateCartCount();
+
+
+},
+
+
+
+
+
+
+
+clear(){
+
+
+this.items=[];
+
+
+this.save();
+
+
+},
+
+
+
+
+
+
+save(){
+
+
+saveData(
+
+FrameItApp.storageKeys.cart,
+
+this.items
+
+);
+
+
+},
+
+
+
+
+
+
+
+total(){
+
+
+return this.items.reduce(
+
+(sum,item)=>sum + item.price,
+
+0
+
+);
+
+
+},
+
+
+
+
+
+
+
+count(){
+
+
+return this.items.length;
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =====================================================
+UPDATE CART COUNTER
+===================================================== */
+
+
+function updateCartCount(){
+
+
+const cartButtons =
+document.querySelectorAll(
+".nav-actions button"
+);
+
+
+
+if(cartButtons.length){
+
+
+
+cartButtons.forEach(
+(button,index)=>{
+
+
+if(index===1){
+
+
+button.innerHTML =
+
+"🛒 " +
+
+Cart.count();
+
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
+}
+
+
+
+
+
+updateCartCount();
+
+
+
+
+
+
+
+
+
+/* =====================================================
+PRODUCT ADD TO CART
+===================================================== */
+
+
+const addButtons =
+document.querySelectorAll(
+".product-details button"
+);
+
+
+
+
+
+addButtons.forEach(
+(button,index)=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+
+const cards =
+document.querySelectorAll(
+".product-card"
+);
+
+
+
+const card =
+cards[index];
+
+
+
+const name =
+card.querySelector(
+"h3"
+).innerText;
+
+
+
+const priceText =
+card.querySelector(
+"strong"
+).innerText;
+
+
+
+const price =
+
+Number(
+
+priceText
+
+.replace(
+
+/[^0-9]/g,
+
+""
+
+)
+
+);
+
+
+
+const image =
+card.querySelector(
+"img"
+).src;
+
+
+
+
+
+const product={
+
+
+id:
+
+Date.now(),
+
+
+name:name,
+
+
+price:price,
+
+
+image:image,
+
+
+quantity:1
+
+
+};
+
+
+
+
+
+Cart.add(product);
+
+
+
+showMessage(
+name +
+" added to cart"
+);
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================================
+WISHLIST SYSTEM
+===================================================== */
+
+
+const Wishlist = {
+
+
+items:getData(
+FrameItApp.storageKeys.wishlist
+),
+
+
+
+
+
+add(product){
+
+
+this.items.push(product);
+
+
+
+saveData(
+
+FrameItApp.storageKeys.wishlist,
+
+this.items
+
+);
+
+
+
+},
+
+
+
+
+
+remove(id){
+
+
+
+this.items =
+
+this.items.filter(
+
+item=>item.id!==id
+
+);
+
+
+
+saveData(
+
+FrameItApp.storageKeys.wishlist,
+
+this.items
+
+);
+
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+/* =====================================================
+WISHLIST BUTTONS
+===================================================== */
+
+
+const wishlistButtons =
+document.querySelectorAll(
+".wishlist"
+);
+
+
+
+wishlistButtons.forEach(
+button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+showMessage(
+"Added to wishlist"
+);
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================================
+CART DISPLAY RENDERER
+===================================================== */
+
+
+function renderCart(){
+
+
+const cartContainer =
+document.querySelector(
+".cart-items"
+);
+
+
+
+if(!cartContainer){
+
+return;
+
+}
+
+
+
+
+cartContainer.innerHTML="";
+
+
+
+
+
+if(Cart.items.length===0){
+
+
+cartContainer.innerHTML =
+
+`
+
+<h3>
+Your cart is empty
+</h3>
+
+`;
+
+return;
+
+
+}
+
+
+
+
+
+
+Cart.items.forEach(
+item=>{
+
+
+
+cartContainer.innerHTML +=
+
+
+`
+
+<div class="cart-item">
+
+
+<img src="${item.image}">
+
+
+
+<div>
+
+<h3>
+
+${item.name}
+
+</h3>
+
+
+<strong>
+
+${formatMoney(item.price)}
+
+</strong>
+
+
+</div>
+
+
+
+<button
+
+onclick="Cart.remove(${item.id});renderCart()">
+
+Remove
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+
+
+const totalElement =
+document.querySelector(
+".total strong"
+);
+
+
+
+if(totalElement){
+
+
+totalElement.innerHTML =
+
+formatMoney(
+Cart.total()
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+renderCart();
+
+
+
+
+
+
+
+
+
+/* =====================================================
+CHECKOUT VALIDATION
+===================================================== */
+
+
+const checkoutForm =
+document.querySelector(
+".checkout-form"
+);
+
+
+
+if(checkoutForm){
+
+
+checkoutForm.addEventListener(
+"submit",
+function(event){
+
+
+event.preventDefault();
+
+
+
+const inputs =
+this.querySelectorAll(
+"input, textarea"
+);
+
+
+
+let valid=true;
+
+
+
+inputs.forEach(
+input=>{
+
+
+if(!input.value.trim()){
+
+
+valid=false;
+
+
+}
+
+
+});
+
+
+
+
+
+if(!valid){
+
+
+showMessage(
+"Please complete all fields"
+);
+
+
+return;
+
+
+}
+
+
+
+
+showMessage(
+"Order successfully created"
+);
+
+
+
+Cart.clear();
+
+
+
+renderCart();
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+ORDER TRACKING
+===================================================== */
+
+
+const trackButton =
+document.querySelector(
+".tracking-box button"
+);
+
+
+
+if(trackButton){
+
+
+trackButton.addEventListener(
+"click",
+()=>{
+
+
+const input =
+document.querySelector(
+".tracking-box input"
+);
+
+
+
+if(input.value.trim()===""){
+
+
+showMessage(
+"Enter your order number"
+);
+
+
+return;
+
+
+}
+
+
+
+
+
+showMessage(
+
+"Order found: Your frame is currently being processed"
+
+);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+PRODUCT SEARCH FOUNDATION
+===================================================== */
+
+
+function searchProducts(keyword){
+
+
+const products =
+document.querySelectorAll(
+".product-card"
+);
+
+
+
+products.forEach(
+product=>{
+
+
+const text =
+product.innerText.toLowerCase();
+
+
+
+if(
+text.includes(
+keyword.toLowerCase()
+)
+
+){
+
+
+product.style.display="block";
+
+
+}
+
+else{
+
+
+product.style.display="none";
+
+
+}
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+CATEGORY FILTER FOUNDATION
+===================================================== */
+
+
+function filterProducts(category){
+
+
+const products =
+document.querySelectorAll(
+".product-card"
+);
+
+
+
+products.forEach(
+product=>{
+
+
+if(category==="all"){
+
+
+product.style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+const title =
+product.querySelector(
+"h3"
+)
+.innerText
+.toLowerCase();
+
+
+
+
+
+product.style.display =
+
+title.includes(
+category.toLowerCase()
+)
+
+?
+
+"block"
+
+:
+
+"none";
+
+
+
+});
+
+
+}
