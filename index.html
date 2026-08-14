@@ -12,11 +12,11 @@
     :root {
       --bg: #07111f;
       --bg-soft: #0c1729;
-      --panel: rgba(8, 15, 29, 0.86);
+      --panel: rgba(8, 15, 29, 0.72);
       --panel-solid: #0f1a2b;
       --text: #f8fafc;
-      --muted: #d4def0;
-      --line: rgba(255,255,255,0.13);
+      --muted: #9fb0c9;
+      --line: rgba(255,255,255,0.08);
       --primary: #8b5cf6;
       --secondary: #ec4899;
       --accent: #22c55e;
@@ -256,115 +256,25 @@
       min-height: 430px;
       border-radius: 24px;
       overflow: hidden;
-      isolation: isolate;
-      background:
-        radial-gradient(circle at top left, rgba(139,92,246,.26), transparent 34%),
-        radial-gradient(circle at top right, rgba(236,72,153,.22), transparent 32%),
-        linear-gradient(160deg, rgba(5,12,22,.98), rgba(10,20,34,.98));
-    }
-
-    .showcase-slider {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .showcase-slide {
-      --slide-bg: none;
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: scale(1.025);
-      transition: opacity .9s ease, transform 5.5s ease;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #07111f;
-    }
-
-    .showcase-slide::before {
-      content: "";
-      position: absolute;
-      inset: -18px;
-      background-image: var(--slide-bg);
-      background-size: cover;
-      background-position: center;
-      filter: blur(18px) brightness(.48) saturate(.9);
-      transform: scale(1.08);
-      opacity: .82;
-    }
-
-    .showcase-slide img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: saturate(1.04) contrast(1.06) brightness(.98);
-    }
-
-    .showcase-slide.active {
-      opacity: 1;
-      transform: scale(1);
+      background: url('images/frame-it-23.jpeg') center/cover;
     }
 
     .showcase-main::after {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(to top, rgba(3,7,18,.97), rgba(3,7,18,.24) 55%, rgba(3,7,18,.08)),
-        radial-gradient(circle at top left, rgba(139,92,246,.18), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(34,197,94,.10), transparent 32%);
-      pointer-events: none;
+      background: linear-gradient(to top, rgba(3,7,18,.88), rgba(3,7,18,.08) 45%);
     }
 
     .showcase-copy {
       position: absolute;
       left: 18px;
       right: 18px;
-      bottom: 24px;
-      z-index: 2;
+      bottom: 18px;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(3,7,18,.78), rgba(8,15,29,.58));
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 14px 36px rgba(0,0,0,.28);
-    }
-
-    .showcase-dots {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 3;
-      display: flex;
-      gap: 7px;
-      padding: 7px 9px;
-      border-radius: 999px;
-      background: rgba(3,7,18,.52);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(8px);
-    }
-
-    .showcase-dot {
-      width: 9px;
-      height: 9px;
-      padding: 0;
-      border-radius: 50%;
-      border: 0;
-      background: rgba(255,255,255,.42);
-      cursor: pointer;
-      transition: transform .25s ease, background .25s ease;
-    }
-
-    .showcase-dot.active {
-      background: #fff;
-      transform: scale(1.25);
     }
 
     .tag {
@@ -377,19 +287,8 @@
       color: #fff;
     }
 
-    .showcase-copy h3 {
-      margin: 0;
-      font-size: 1.65rem;
-      color: #fff;
-      text-shadow: 0 2px 14px rgba(0,0,0,.75);
-    }
-    .showcase-copy p {
-      margin: 0;
-      color: #edf3ff;
-      font-size: .96rem;
-      line-height: 1.65;
-      text-shadow: 0 1px 10px rgba(0,0,0,.75);
-    }
+    .showcase-copy h3 { margin: 0; font-size: 1.65rem; }
+    .showcase-copy p { margin: 0; color: #dbe4f2; font-size: .93rem; }
 
     .showcase-mini-grid {
       display: grid;
@@ -529,21 +428,6 @@
       position: relative;
       height: 240px;
       overflow: hidden;
-      isolation: isolate;
-      background:
-        radial-gradient(circle at top left, rgba(139,92,246,.16), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(236,72,153,.14), transparent 34%),
-        linear-gradient(160deg, rgba(7,17,31,.96), rgba(9,22,39,.94));
-    }
-
-    .card-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(5,12,22,.06), rgba(5,12,22,.42)),
-        radial-gradient(circle at top right, rgba(255,255,255,.06), transparent 28%);
-      pointer-events: none;
     }
 
     .card-media img {
@@ -551,7 +435,6 @@
       height: 100%;
       object-fit: contain;
       transition: transform .5s ease;
-      filter: saturate(1.02) contrast(1.05) brightness(.96);
     }
 
     .card:hover .card-media img {
@@ -787,8 +670,6 @@
       border: 1px solid rgba(255,255,255,.08);
       object-fit: contain;
       box-shadow: var(--shadow);
-      background: linear-gradient(160deg, rgba(7,17,31,.96), rgba(9,22,39,.94));
-      filter: saturate(1.02) contrast(1.04) brightness(.96);
     }
 
     .testimonial-card {
@@ -905,8 +786,6 @@
       height: 72px;
       object-fit: contain;
       border-radius: 14px;
-      background: linear-gradient(160deg, rgba(7,17,31,.96), rgba(9,22,39,.94));
-      filter: saturate(1.02) contrast(1.04) brightness(.96);
     }
 
     .cart-item h4 {
@@ -1065,22 +944,8 @@
       min-height: 260px;
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,.09);
-      background:
-        radial-gradient(circle at top left, rgba(139,92,246,.16), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(236,72,153,.14), transparent 34%),
-        linear-gradient(160deg, rgba(7,17,31,.96), rgba(9,22,39,.94));
+      background: rgba(255,255,255,.04);
       box-shadow: var(--shadow);
-      isolation: isolate;
-    }
-
-    .recent-work-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(5,12,22,.04), rgba(5,12,22,.38)),
-        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 30%);
-      pointer-events: none;
     }
 
     .recent-work-card img {
@@ -1089,68 +954,10 @@
       min-height: 260px;
       object-fit: contain;
       transition: transform .35s ease;
-      filter: saturate(1.02) contrast(1.05) brightness(.96);
     }
 
     .recent-work-card:hover img {
       transform: scale(1.04);
-    }
-
-
-
-    /* Enhanced readability across the storefront */
-    .hero p,
-    .section-header p,
-    .card-top p,
-    .feature-card p,
-    .panel p,
-    .panel li,
-    .panel td,
-    .panel th,
-    .mini-panel p,
-    .stat span,
-    .footer p,
-    .footer li,
-    .footer a {
-      color: #d6e0f1;
-    }
-
-    .hero h1,
-    .section-header h2,
-    .card-top h3,
-    .feature-card h3,
-    .panel h3,
-    .panel h4 {
-      text-shadow: 0 2px 16px rgba(0,0,0,.32);
-    }
-
-    .panel,
-    .stat,
-    .toolbar,
-    .card,
-    .mini-panel {
-      background-color: rgba(7,16,29,.80);
-    }
-
-    .input,
-    .select,
-    textarea {
-      color: #ffffff;
-      background: rgba(255,255,255,.075);
-      border-color: rgba(255,255,255,.14);
-    }
-
-    .input::placeholder,
-    textarea::placeholder {
-      color: #b9c8dd;
-      opacity: 1;
-    }
-
-    .tag,
-    .badge,
-    .rating-pill,
-    .meta-pill {
-      text-shadow: 0 1px 7px rgba(0,0,0,.55);
     }
 
   </style>
@@ -1204,31 +1011,7 @@
 
       <div class="hero-card reveal">
         <div class="hero-showcase">
-          <div class="showcase-main" id="showcaseMain">
-            <div class="showcase-slider" aria-label="Frame-it Naija project slideshow">
-              <div class="showcase-slide active" style="--slide-bg: url('images/frame-it-23.jpeg');">
-                <img src="images/frame-it-23.jpeg" alt="Frame-it Naija gallery wall project" />
-              </div>
-              <div class="showcase-slide" style="--slide-bg: url('images/frame-it-01.jpeg');">
-                <img src="images/frame-it-01.jpeg" alt="Frame-it Naija custom framed wall display" />
-              </div>
-              <div class="showcase-slide" style="--slide-bg: url('images/frame-it-17.jpeg');">
-                <img src="images/frame-it-17.jpeg" alt="Frame-it Naija premium portrait framing" />
-              </div>
-              <div class="showcase-slide" style="--slide-bg: url('images/frame-it-19.jpeg');">
-                <img src="images/frame-it-19.jpeg" alt="Frame-it Naija framed artwork project" />
-              </div>
-              <div class="showcase-slide" style="--slide-bg: url('images/frame-it-22.jpeg');">
-                <img src="images/frame-it-22.jpeg" alt="Frame-it Naija modern wall art frame" />
-              </div>
-            </div>
-            <div class="showcase-dots" aria-label="Choose slideshow image">
-              <button class="showcase-dot active" type="button" aria-label="Show image 1"></button>
-              <button class="showcase-dot" type="button" aria-label="Show image 2"></button>
-              <button class="showcase-dot" type="button" aria-label="Show image 3"></button>
-              <button class="showcase-dot" type="button" aria-label="Show image 4"></button>
-              <button class="showcase-dot" type="button" aria-label="Show image 5"></button>
-            </div>
+          <div class="showcase-main">
             <div class="showcase-copy">
               <div class="tag">Signature Gallery Walls</div>
               <h3>Luxury framing that upgrades your space instantly</h3>
@@ -2025,38 +1808,6 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
-
-    // Hero project slideshow
-    const showcaseSlides = Array.from(document.querySelectorAll('.showcase-slide'));
-    const showcaseDots = Array.from(document.querySelectorAll('.showcase-dot'));
-    const showcaseMain = document.getElementById('showcaseMain');
-    let showcaseIndex = 0;
-    let showcaseTimer;
-
-    function showShowcaseSlide(index) {
-      showcaseIndex = (index + showcaseSlides.length) % showcaseSlides.length;
-      showcaseSlides.forEach((slide, i) => slide.classList.toggle('active', i === showcaseIndex));
-      showcaseDots.forEach((dot, i) => dot.classList.toggle('active', i === showcaseIndex));
-    }
-
-    function startShowcaseSlider() {
-      clearInterval(showcaseTimer);
-      showcaseTimer = setInterval(() => showShowcaseSlide(showcaseIndex + 1), 4200);
-    }
-
-    showcaseDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showShowcaseSlide(index);
-        startShowcaseSlider();
-      });
-    });
-
-    if (showcaseMain) {
-      showcaseMain.addEventListener('mouseenter', () => clearInterval(showcaseTimer));
-      showcaseMain.addEventListener('mouseleave', startShowcaseSlider);
-    }
-
-    if (showcaseSlides.length) startShowcaseSlider();
 
     renderProducts();
     updateCart();
